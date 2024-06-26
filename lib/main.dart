@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ishita_singh/screens/main_screen.dart';
 import 'package:ishita_singh/screens/splashscreen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Calibre',
             scrollbarTheme: const ScrollbarThemeData().copyWith(
                 thumbColor: MaterialStateProperty.all(Colors.transparent))),
-        home: SplashScreen(),
+        home: MainPage(),
       );
     });
   }

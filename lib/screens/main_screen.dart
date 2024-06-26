@@ -26,10 +26,10 @@ class _MainPageState extends State<MainPage> {
 
   PreferredSizeWidget showWideNavbar() {
     return AppBar(
-      leading: Image.asset(
-        'assets/I.png',
-        width: 50,
-      ),
+      // leading: Image.asset(
+      //   'assets/I.png',
+      //   width: 50,
+      // ),
       toolbarHeight: 100,
       backgroundColor: AppColors.primaryColor,
       elevation: 0,
@@ -197,10 +197,10 @@ class _MainPageState extends State<MainPage> {
     return AppBar(
       backgroundColor: AppColors.primaryColor,
       elevation: 0,
-      title: Image.asset(
-        'assets/I.png',
-        width: 50,
-      ),
+      // title: Image.asset(
+      //   'assets/I.png',
+      //   width: 50,
+      // ),
       toolbarHeight: 100,
     );
   }

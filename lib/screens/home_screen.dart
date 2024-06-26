@@ -4,6 +4,7 @@ import 'package:ishita_singh/screens/about_screen.dart';
 import 'package:ishita_singh/screens/contact_screen.dart';
 import 'package:ishita_singh/screens/experience_screen.dart';
 import 'package:ishita_singh/screens/projects_screen.dart';
+import 'package:ishita_singh/utilities/strings.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:ishita_singh/utilities/appcolors.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
@@ -35,166 +36,175 @@ class HomePageState extends State<HomePage> {
     return ValueListenableBuilder(
         valueListenable: changables.changableCount,
         builder: (context, value, _) {
-          return Row(
-            children: [
-              Expanded(
-                child: Container(
+          return Container(
+             decoration:  BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(StrLiteral.background),
+                
+                fit: BoxFit.cover, // Adjust this property as needed (cover, contain, etc.)
+              ),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://www.linkedin.com/in/ishita-singh-creater/',
+                                'LinkedIn');
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width >
+                                    MediaQuery.of(context).size.height
+                                ? Adaptive.w(2)
+                                : Adaptive.h(3),
+                            child: Image.asset(
+                              'assets/linkedin.png',
+                              color: AppColors.hoverTextColor,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: Adaptive.h(2)),
+                        InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://github.com/Ishita03-Singh/', 'Github');
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width >
+                                    MediaQuery.of(context).size.height
+                                ? Adaptive.w(2)
+                                : Adaptive.h(3),
+                            child: Image.asset(
+                              'assets/github.png',
+                              color: AppColors.hoverTextColor,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: Adaptive.h(2)),
+                        InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://www.instagram.com/iishitaaasingh/',
+                                'instagram');
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width >
+                                    MediaQuery.of(context).size.height
+                                ? Adaptive.w(2)
+                                : Adaptive.h(3),
+                            child: Image.asset(
+                              'assets/instagram.png',
+                              color: AppColors.hoverTextColor,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: Adaptive.h(2)),
+                        InkWell(
+                          onTap: () {},
+                          child: Container(
+                            width: MediaQuery.of(context).size.width >
+                                    MediaQuery.of(context).size.height
+                                ? Adaptive.w(2)
+                                : Adaptive.h(3),
+                            child: Image.asset(
+                              'assets/behance.png',
+                              color: AppColors.hoverTextColor,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: Adaptive.h(2)),
+                        InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://twitter.com/ISHITAS49743589', 'Twitter');
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width >
+                                    MediaQuery.of(context).size.height
+                                ? Adaptive.w(2)
+                                : Adaptive.h(3),
+                            child: Image.asset(
+                              'assets/twitter.png',
+                              color: AppColors.hoverTextColor,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: Adaptive.h(2)),
+                        Container(
+                          width: 1,
+                          height: MediaQuery.of(context).size.height / 4,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 9,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    controller: controller,
+                    children: <Widget>[
+                      ...List.generate(5, (index) {
+                        return AutoScrollTag(
+                          key: ValueKey(index),
+                          controller: controller,
+                          index: index,
+                          child: getScrollItem(index),
+                          highlightColor: Colors.black.withOpacity(0.1),
+                        );
+                      }),
+                    ],
+                  ),
+                ),
+                Expanded(
+                    child: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       InkWell(
-                        onTap: () {
-                          html.window.open(
-                              'https://www.linkedin.com/in/ishita-singh-creater/',
-                              'LinkedIn');
+                        onTap: () async {
+                          var url =
+                              Uri.parse("mailto:singh.ishita.atwork@gmail.com");
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          } else {
+                            throw 'Could not launch ';
+                          }
                         },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width >
-                                  MediaQuery.of(context).size.height
-                              ? Adaptive.w(2)
-                              : Adaptive.h(3),
-                          child: Image.asset(
-                            'assets/linkedin.png',
-                            color: AppColors.hoverTextColor,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Adaptive.h(2)),
-                      InkWell(
-                        onTap: () {
-                          html.window.open(
-                              'https://github.com/Ishita03-Singh/', 'Github');
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width >
-                                  MediaQuery.of(context).size.height
-                              ? Adaptive.w(2)
-                              : Adaptive.h(3),
-                          child: Image.asset(
-                            'assets/github.png',
-                            color: AppColors.hoverTextColor,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Adaptive.h(2)),
-                      InkWell(
-                        onTap: () {
-                          html.window.open(
-                              'https://www.instagram.com/iishitaaasingh/',
-                              'instagram');
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width >
-                                  MediaQuery.of(context).size.height
-                              ? Adaptive.w(2)
-                              : Adaptive.h(3),
-                          child: Image.asset(
-                            'assets/instagram.png',
-                            color: AppColors.hoverTextColor,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Adaptive.h(2)),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: MediaQuery.of(context).size.width >
-                                  MediaQuery.of(context).size.height
-                              ? Adaptive.w(2)
-                              : Adaptive.h(3),
-                          child: Image.asset(
-                            'assets/behance.png',
-                            color: AppColors.hoverTextColor,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Adaptive.h(2)),
-                      InkWell(
-                        onTap: () {
-                          html.window.open(
-                              'https://twitter.com/ISHITAS49743589', 'Twitter');
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width >
-                                  MediaQuery.of(context).size.height
-                              ? Adaptive.w(2)
-                              : Adaptive.h(3),
-                          child: Image.asset(
-                            'assets/twitter.png',
-                            color: AppColors.hoverTextColor,
-                            fit: BoxFit.fill,
+                        child: RotatedBox(
+                          quarterTurns: 1,
+                          child: Text(
+                            'singh.ishita.atwork@gmail.com',
+                            style: TextStyle(
+                                color: AppColors.hoverTextColor,
+                                fontSize: 16.sp,
+                                fontFamily: 'SFMono',
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                       ),
                       SizedBox(height: Adaptive.h(2)),
                       Container(
                         width: 1,
-                        height: MediaQuery.of(context).size.height / 4,
+                        height: Adaptive.h(10),
                         color: Colors.white,
                       )
                     ],
                   ),
-                ),
-              ),
-              Expanded(
-                flex: 9,
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  controller: controller,
-                  children: <Widget>[
-                    ...List.generate(5, (index) {
-                      return AutoScrollTag(
-                        key: ValueKey(index),
-                        controller: controller,
-                        index: index,
-                        child: getScrollItem(index),
-                        highlightColor: Colors.black.withOpacity(0.1),
-                      );
-                    }),
-                  ],
-                ),
-              ),
-              Expanded(
-                  child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: () async {
-                        var url =
-                            Uri.parse("mailto:ishitasingh150301@gmail.com");
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        } else {
-                          throw 'Could not launch ';
-                        }
-                      },
-                      child: RotatedBox(
-                        quarterTurns: 1,
-                        child: Text(
-                          'ishitasingh150301@gmail.com',
-                          style: TextStyle(
-                              color: AppColors.hoverTextColor,
-                              fontSize: 16.sp,
-                              fontFamily: 'SFMono',
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: Adaptive.h(2)),
-                    Container(
-                      width: 1,
-                      height: Adaptive.h(10),
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-              ))
-            ],
+                ))
+              ],
+            ),
           );
         });
   }
@@ -210,7 +220,7 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Hello, my name is ",
+            StrLiteral.introText0,
             style: TextStyle(
                 color: AppColors.hoverTextColor,
                 fontFamily: 'SFMono',
@@ -221,7 +231,7 @@ class HomePageState extends State<HomePage> {
             height: Adaptive.h(2),
           ),
           Text(
-            'Ishita Singh.',
+            StrLiteral.introText1,
             style: TextStyle(
                 color: AppColors.headColor,
                 fontFamily: 'Calibre',
@@ -229,7 +239,7 @@ class HomePageState extends State<HomePage> {
                 fontSize: 25.sp),
           ),
           Text(
-            'I love exploring new things!',
+            StrLiteral.introText2,
             style: TextStyle(
                 color: AppColors.greyTextColor,
                 fontFamily: 'Calibre',
@@ -239,7 +249,7 @@ class HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.only(top: Adaptive.w(3)),
             child: Text(
-              "I'm a final Year Computer Science Engineering Student at Dronacharya college of Engineering, Gurugram.\nPrimarily interested in Android Development and Problem Solving.\nI enjoy learning new skills and implementing them in real life!",
+              StrLiteral.introText3,
               style: TextStyle(
                   color: AppColors.greyTextColor,
                   fontFamily: 'Calibre',
@@ -247,9 +257,10 @@ class HomePageState extends State<HomePage> {
                   fontSize: 14.sp),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: Adaptive.w(5)),
-            child: TextButton(
+          // Padding(
+          //   padding: EdgeInsets.only(top: Adaptive.w(5)),
+          //   child: 
+            TextButton(
                 onPressed: () async {
                   var url = Uri.parse("mailto:ishitasingh150301@gmail.com");
                   if (await canLaunchUrl(url)) {
@@ -274,7 +285,7 @@ class HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.w200),
                   ),
                 )),
-          )
+          // )
         ],
       ),
     );
@@ -285,28 +296,28 @@ class HomePageState extends State<HomePage> {
     switch (index) {
       case 0:
         return Container(
-          color: AppColors.primaryColor,
+          // color: AppColors.primaryColor,
           child: HomeContent(),
         );
       case 1:
         return Container(
-          color: AppColors.primaryColor,
+          // color: AppColors.primaryColor,
           child: AboutScreen(),
         );
 
       case 2:
         return Container(
-          color: AppColors.primaryColor,
+          // color: AppColors.primaryColor,
           child: ExperienceScreen(sw: MediaQuery.of(context).size.width),
         );
       case 3:
         return Container(
-          color: AppColors.primaryColor,
+          // color: AppColors.primaryColor,
           child: ProjectsScreen(),
         );
       case 4:
         return Container(
-          color: AppColors.primaryColor,
+          // color: AppColors.primaryColor,
           child: ConatactScreen(),
         );
     }

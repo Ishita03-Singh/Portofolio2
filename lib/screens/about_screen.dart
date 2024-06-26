@@ -17,75 +17,81 @@ class AboutScreen extends StatelessWidget {
         builder: (context, value, _) {
           print("object");
           val = value.toString();
-          return Padding(
-            padding: EdgeInsets.only(
-                left: Adaptive.w(5),
-                right: Adaptive.w(5),
-                bottom: Adaptive.w(20)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'About me',
-                  style: TextStyle(
-                      color: AppColors.headColor,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w700),
-                ),
-                Container(
-                  color: AppColors.greyTextColor,
-                  width: sw,
-                  height: 2,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: Adaptive.w(15),
-                                width: Adaptive.w(13),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AppColors.greyTextColor,
-                                    width: 1.0,
-                                    style: BorderStyle.solid,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(Adaptive.w(1)),
-                                  child: Image.network(
-                                    'https://avatars.githubusercontent.com/u/76431570?v=4',
-                                  ),
-                                ),
-                              ),
-                              (sw) < 300 ? ShowSkills() : showNull(),
-                            ]),
-                        SizedBox(
-                          width: Adaptive.w(8),
-                        ),
-                        Container(
-                          width: Adaptive.w(35),
-                          child: Text(
-                            "Hello! I'm Ishita Singh, from Gurgaon. I am a creative, time punctual, dedicated, goal-oriented individual with decent moral Values and Ethics along with a high-energy level, honed communication skills, strong organizational skills, and meticulous attention to detail. I am pursuing my Bachelors from Dronacharya College of Engineering, Gurgaon in Computer Science and Engineering (2019-2023). My current GPA is 9.25 out of 10.",
-                            style: TextStyle(
-                                color: AppColors.greyTextColor,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14.sp),
-                          ),
-                        ),
-                      ],
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            Text(
+                      'About me',
+                      style: TextStyle(
+                          color: AppColors.headColor,
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700),
                     ),
-                  ),
+              Container(
+                margin: EdgeInsets.only(top:Adaptive.w(3),bottom: Adaptive.w(5) ),
+                padding: EdgeInsets.all(
+                      Adaptive.w(5)),
+                      color:AppColors.bgProgressTextColor.withOpacity(0.6),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    
+                    // Container(
+                    //   color: AppColors.greyTextColor,
+                    //   width: sw,
+                    //   height: 2,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: IntrinsicHeight(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: Adaptive.w(15),
+                                    width: Adaptive.w(13),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: AppColors.greyTextColor,
+                                        width: 1.0,
+                                        style: BorderStyle.solid,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(Adaptive.w(1)),
+                                      child: Image.network(
+                                        'https://avatars.githubusercontent.com/u/76431570?v=4',
+                                      ),
+                                    ),
+                                  ),
+                                  (sw) < 300 ? ShowSkills() : showNull(),
+                                ]),
+                            SizedBox(
+                              width: Adaptive.w(8),
+                            ),
+                            Container(
+                              width: Adaptive.w(35),
+                              child: Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",
+                                style: TextStyle(
+                                    color: AppColors.greyTextColor,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14.sp),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    (sw) >= 300 ? ShowSkills() : showNull(),
+                  ],
                 ),
-                (sw) >= 300 ? ShowSkills() : showNull(),
-              ],
-            ),
+              ),
+            ],
           );
         });
   }
@@ -173,7 +179,7 @@ class AboutScreen extends StatelessWidget {
             percent: percentage,
             animation: true,
             animationDuration: 2000,
-            backgroundColor: AppColors.bgProgressTextColor,
+            backgroundColor: AppColors.primaryColor,
             barRadius: Radius.circular(20.sp),
             progressColor: AppColors.hoverTextColor.withOpacity(0.7),
           ),

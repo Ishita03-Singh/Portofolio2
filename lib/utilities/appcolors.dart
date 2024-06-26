@@ -8,4 +8,5 @@ class AppColors {
   static Color expBoxColor = const Color(0xFF100416a);
   static Color headColor = const Color(0xFFc1caeb);
   static Color darkgreyColor = const Color(0xFF34415a);
+  static Color iconColor= const Color(0xFF64ffda);
 }

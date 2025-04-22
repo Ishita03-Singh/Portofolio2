@@ -81,15 +81,16 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   fieldbtnElement(String text, int idss) {
     return IntrinsicHeight(
       child: Row(
+        
         children: [
           selectedsmallContainer(
-              id == idss ? AppColors.hoverTextColor : AppColors.darkgreyColor,
+              id == idss ? Colors.black : AppColors.headColor,
               id == idss ? Adaptive.w(0.15) : Adaptive.w(0.1)),
           Expanded(
             child: TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: id == idss
-                      ? AppColors.greyTextColor.withOpacity(0.08)
+                      ? AppColors.primaryColor
                       : Colors.transparent),
               onPressed: () {
                 setState(() {
@@ -107,8 +108,8 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                           fontSize: 11.sp,
                           fontWeight: FontWeight.w600,
                           color: id == idss
-                              ? AppColors.hoverTextColor
-                              : AppColors.darkgreyColor)),
+                              ? Colors.black
+                              : AppColors.headColor)),
                 ),
               ),
             ),
@@ -296,21 +297,6 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
           ),
         ]));
   }
-
-  // setSmallContainerContent(int id) {
-  //   if (id == 1) {
-  //     return internshipContainer();
-  //   }
-  //   if (id == 2) {
-  //     return espContainer();
-  //   }
-  //   if (id == 3) {
-  //     return profileContainer();
-  //   }
-  //   if (id == 4) {
-  //     return volunteerContainer();
-  //   }
-  // }
 
   selectedsmallContainer(Color color, double contWidth) {
     return Container(

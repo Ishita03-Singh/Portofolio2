@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ishita_singh/changables.dart';
 import 'package:ishita_singh/screens/home_screen.dart';
 import 'package:ishita_singh/utilities/appcolors.dart';
+import 'package:ishita_singh/utilities/custom_text.dart';
+import 'package:ishita_singh/utilities/navbarMenu.dart';
+import 'package:ishita_singh/utilities/strings.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+
+import '../utilities/hovericon.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
@@ -17,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     final sw = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: Color(0xFFf4f4f2),
       appBar: sw <= 600 ? showSmallNavBar() : showWideNavbar(),
       endDrawer: sw >= 600 ? null : showNavBar(),
       body: HomePage(),
@@ -26,168 +31,27 @@ class _MainPageState extends State<MainPage> {
 
   PreferredSizeWidget showWideNavbar() {
     return AppBar(
-      // leading: Image.asset(
-      //   'assets/I.png',
-      //   width: 50,
-      // ),
-      toolbarHeight: 100,
-      backgroundColor: AppColors.primaryColor,
+      foregroundColor: Color(0xFFf4f4f2),
+      surfaceTintColor: Color(0xFFf4f4f2),
+      bottom: PreferredSize(
+            preferredSize: Size.fromHeight(1.0), // Height of the border
+            child: Container(
+              color: Colors.black, // Border color
+              height: 1.0, // Thickness of the border
+            ),
+      ),
+      toolbarHeight: 60,
+      backgroundColor: Color(0xFFf4f4f2),
+      titleSpacing: 0,
       elevation: 0,
       toolbarTextStyle: TextStyle(fontSize: 12.sp),
       actions: [
-        TextButton(
-          onPressed: () async {
-            await HomePageState.controller
-                .scrollToIndex(1, preferPosition: AutoScrollPosition.begin);
-            changables.changableCount.value += 1;
-          },
-          style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              return Colors.transparent;
-            }),
-            foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered))
-                return AppColors.hoverTextColor;
-              return AppColors.greyTextColor;
-            }),
-          ),
-          child: Row(
-            children: [
-              Text(
-                '01. ',
-                style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'SFMono',
-                    color: AppColors.hoverTextColor),
-              ),
-              Text(
-                'About',
-                style: TextStyle(fontSize: 12.sp, fontFamily: 'SFMono'),
-              ),
-            ],
-          ),
-        ),
-        TextButton(
-          onPressed: () async {
-            await HomePageState.controller
-                .scrollToIndex(2, preferPosition: AutoScrollPosition.begin);
-          },
-          style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              return Colors.transparent;
-            }),
-            foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered))
-                return AppColors.hoverTextColor;
-              return AppColors.greyTextColor;
-            }),
-          ),
-          child: Row(
-            children: [
-              Text(
-                '02. ',
-                style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'SFMono',
-                    color: AppColors.hoverTextColor),
-              ),
-              Text(
-                'Experience',
-                style: TextStyle(fontSize: 12.sp, fontFamily: 'SFMono'),
-              ),
-            ],
-          ),
-        ),
-        TextButton(
-          onPressed: () async {
-            await HomePageState.controller
-                .scrollToIndex(3, preferPosition: AutoScrollPosition.begin);
-          },
-          style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              return Colors.transparent;
-            }),
-            foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered))
-                return AppColors.hoverTextColor;
-              return AppColors.greyTextColor;
-            }),
-          ),
-          child: Row(
-            children: [
-              Text(
-                '03. ',
-                style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'SFMono',
-                    color: AppColors.hoverTextColor),
-              ),
-              Text(
-                'Projects',
-                style: TextStyle(fontSize: 12.sp, fontFamily: 'SFMono'),
-              ),
-            ],
-          ),
-        ),
-        TextButton(
-          onPressed: () async {
-            await HomePageState.controller
-                .scrollToIndex(4, preferPosition: AutoScrollPosition.begin);
-          },
-          style: ButtonStyle(
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              return Colors.transparent;
-            }),
-            foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.hovered))
-                return AppColors.hoverTextColor;
-              return AppColors.greyTextColor;
-            }),
-          ),
-          child: Row(
-            children: [
-              Text(
-                '04. ',
-                style: TextStyle(
-                    fontSize: 12.sp,
-                    fontFamily: 'SFMono',
-                    color: AppColors.hoverTextColor),
-              ),
-              Text(
-                'Contact',
-                style: TextStyle(fontSize: 12.sp, fontFamily: 'SFMono'),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-                side: MaterialStateProperty.all(BorderSide(
-                    style: BorderStyle.solid,
-                    color: AppColors.hoverTextColor,
-                    width: 1.0))),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Resume',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: AppColors.hoverTextColor,
-                    fontFamily: 'SFMono'),
-              ),
-            ),
-          ),
+        Navbarmenu.getNavVarMenuExpanded(0,"About me"),
+        Navbarmenu.getNavVarMenuExpanded(1,"Resume"),
+        Navbarmenu.getNavVarMenuExpanded(2,"Work"),
+        Navbarmenu.getNavVarMenuExpanded(3,"Projects"),
+      Container(
+        child:  HoverIconButton(imagePath: StrLiteral.resume,),
         )
       ],
     );

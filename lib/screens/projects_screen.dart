@@ -161,6 +161,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
         },
         child: Container(
                  height: Adaptive.h(40),
+                 decoration: BoxDecoration(border: Border.all(color: Colors.black,width: 3)),
                 child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           controller: _scrollController,
@@ -201,7 +202,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             //  width: sw <= 450 ? Adaptive.w(30) : Adaptive.w(20),
       
       decoration: BoxDecoration(
-        color: AppColors.bgProgressTextColor.withOpacity(0.6),
+        // color: AppColors.bgProgressTextColor.withOpacity(0.6),
+        color: Color(0xFFcfc5b7),
         borderRadius: BorderRadius.circular(10.0),
         // border: Border.all(
         //   color: AppColors.primaryColor.withOpacity(0.4),
@@ -283,63 +285,6 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     );
   }
 
-  // showProjectsColumn() {
-  //   return Column(
-  //     children: [
-  //       IntrinsicHeight(
-  //         child: Row(
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: [
-  //             giveProjectCard(
-  //                 'https://github.com/Ishita03-Singh/Avekshaka/raw/master/avekshaka%20snapshots/1656184460448_100.PNG',
-  //                 'AvekShaka',
-  //                 'Android Studio, Java, Firebase',
-  //                 'Monitor the security standards of people with dementia with repeated reminders. Contains exercises and notes for motor development.',
-  //                 'https://github.com/Ishita03-Singh/Avekshaka',
-  //                 'AvekShaka'),
-  //             SizedBox(
-  //               width: Adaptive.w(10),
-  //             ),
-  //             giveProjectCard(
-  //                 'https://github.com/Ishita03-Singh/Covi-Eye/raw/master/WhatsApp%20Image%202021-11-14%20at%205.40.45%20PM%20(2).jpeg',
-  //                 'Covi-Eye',
-  //                 'Android Studio, Java',
-  //                 'Measure heart rate and oxygen rate with camera and flashlight. User can share resulted value with current location.',
-  //                 'https://github.com/Ishita03-Singh/Covi-Eye',
-  //                 'Covi-Eye'),
-  //           ],
-  //         ),
-  //       ),
-  //       SizedBox(
-  //         height: Adaptive.h(4),
-  //       ),
-  //       IntrinsicHeight(
-  //         child: Row(
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: [
-  //             giveProjectCard(
-  //                 'https://github.com/Ishita03-Singh/News-Feed/raw/master/screenshot%203.jpeg',
-  //                 'NewsFeed',
-  //                 'Android Studio, Kotlin, News Api',
-  //                 'Shows trending news on daily update. It also allow users to select their field of interest and then display news related to that field of interest only.',
-  //                 'https://github.com/Ishita03-Singh/News-Feed',
-  //                 'NewsFeed'),
-  //             SizedBox(
-  //               width: Adaptive.w(10),
-  //             ),
-  //             giveProjectCard(
-  //                 'https://github.com/Ishita03-Singh/Avekshaka/raw/master/avekshaka%20snapshots/1656184460448_100.PNG',
-  //                 'AvekShaka',
-  //                 'Android Studio, Java, Firebase',
-  //                 'Monitor the security standards of people with dementia with repeated reminders. Contains exercises and notes for motor development.',
-  //                 'https://github.com/Ishita03-Singh/Avekshaka',
-  //                 'AvekShaka'),
-  //           ],
-  //         ),
-  //       )
-  //     ],
-  //   );
-  // }
 
   giveProjectCard( String projectTitle, String tech,
       String description, String projectURL, String projectURLName) {

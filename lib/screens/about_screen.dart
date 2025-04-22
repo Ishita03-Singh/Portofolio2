@@ -15,7 +15,6 @@ class AboutScreen extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: changables.changableCount,
         builder: (context, value, _) {
-          print("object");
           val = value.toString();
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +30,11 @@ class AboutScreen extends StatelessWidget {
                 margin: EdgeInsets.only(top:Adaptive.w(3),bottom: Adaptive.w(5) ),
                 padding: EdgeInsets.all(
                       Adaptive.w(5)),
-                      color:AppColors.bgProgressTextColor.withOpacity(0.6),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        color:Color(0xFFe8e8e4),
+                      ),
+                     
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -158,7 +161,7 @@ class AboutScreen extends StatelessWidget {
 
   skillbar(double percentage, String titleText) {
     // print(changables.changableCount.value);
-    print("jkhkjh");
+    // print("jkhkjh");
     return Padding(
       padding: EdgeInsets.only(top: 7.sp),
       child: Column(
@@ -179,7 +182,7 @@ class AboutScreen extends StatelessWidget {
             percent: percentage,
             animation: true,
             animationDuration: 2000,
-            backgroundColor: AppColors.primaryColor,
+            backgroundColor: Color.fromARGB(255, 184, 183, 186),
             barRadius: Radius.circular(20.sp),
             progressColor: AppColors.hoverTextColor.withOpacity(0.7),
           ),

@@ -27,7 +27,7 @@ class HoverIconButtonState extends State<HoverIconButton> {
         onPressed: () {},
         style: ButtonStyle(
           shape: MaterialStateProperty.all(CircleBorder()),
-          padding: MaterialStateProperty.all(EdgeInsets.all(16)),
+          padding: MaterialStateProperty.all(EdgeInsets.all(8)),
           side: MaterialStateProperty.all(
             BorderSide(color: Colors.black, width: 1),
           ),

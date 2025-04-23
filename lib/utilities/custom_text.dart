@@ -7,24 +7,26 @@ class CustomText {
   static Text appNameText(String text, {bool isCenter = false}) => Text(text,
       textAlign: isCenter ? TextAlign.center : TextAlign.left,
       style: const TextStyle(
+        fontFamily: "Quicksand",
           fontSize: 22, color: Colors.white, fontWeight: FontWeight.w700));
 
 
   static Text headText(String text) => Text(text,
       style: const TextStyle(
-        // fontFamily: "Lalezar",
+        fontFamily: "Quicksand",
           fontSize: 60, color: Color(0xFF25171c), fontWeight: FontWeight.w900));
 
           
   static Text largeHeadText(String text) => Text(text,
       style: const TextStyle(
-        // fontFamily: "Lalezar",
+        fontFamily: "Quicksand",
           fontSize: 30, color: Colors.white, fontWeight: FontWeight.w900));
 
   static Text infoText(String text, {bool isCenter = false}) => Text(text,
       textAlign: isCenter ? TextAlign.center : TextAlign.left,
       style: const TextStyle(
           fontSize: 14,
+          fontFamily: "Quicksand",
           color: Colors.white,
           fontWeight: FontWeight.w300));
 
@@ -33,9 +35,9 @@ class CustomText {
       textAlign: isCenter ? TextAlign.center : TextAlign.left,
       style: TextStyle(
           fontSize: 13.sp,
-          fontFamily: "SFMono",
+          fontFamily: "Quicksand",
           color: Colors.black,
-          fontWeight: FontWeight.w300));
+          fontWeight: FontWeight.w500));
 
 
        static Stack highlightText(String text, {bool isCenter = false}) => Stack(
@@ -70,19 +72,19 @@ class CustomText {
 
 
 
-  static cancelBtnText(String text, {double fontsize = 22}) => Text(
+  static cancelBtnText(String text, {double fontsize = 26}) => Text(
       textAlign: TextAlign.center,
       text,
       style: TextStyle(
           fontSize: fontsize,
-        fontFamily: "Calibre",
+        fontFamily: "Quicksand",
           color: Colors.black,
-          fontWeight: FontWeight.w600));
+          fontWeight: FontWeight.w700));
   static taskBtnText(String text, {double fontsize = 32}) => Text(
       textAlign: TextAlign.center,
       text,
       style: TextStyle(
-        fontFamily: "Calibre",
+        fontFamily: "Quicksand",
           fontSize: fontsize,
           color: AppColors.primaryColor.withOpacity(0.7),
           fontWeight: FontWeight.w600));

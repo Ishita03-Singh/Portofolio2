@@ -40,18 +40,14 @@ flutter:
   assets:
     - assets/
   fonts:
-    - family: SFMono
+    - family: Quicksand
       fonts:
-        - asset: lib/fonts/SFMono-Medium.ttf
-        - asset: lib/fonts/SFMono-Regular.ttf
-        - asset: lib/fonts/SFMono-Semibold.ttf
+        - asset: lib/fonts/Quicksand-Medium.ttf
+        - asset: lib/fonts/Quicksand-Regular.ttf
+        - asset: lib/fonts/Quicksand-Semibold.ttf
+        - asset: lib/fonts/Quicksand-Bold.ttf
+        - asset: lib/fonts/Quicksand-Light.ttf
        
-    - family: Calibre
-      fonts:
-        - asset: lib/fonts/Calibre-Light.ttf
-        - asset: lib/fonts/Calibre-Medium.ttf
-        - asset: lib/fonts/Calibre-Regular.ttf
-        - asset: lib/fonts/Calibre-Semibold.ttf
 
       
 

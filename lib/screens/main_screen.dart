@@ -31,6 +31,12 @@ class _MainPageState extends State<MainPage> {
 
   PreferredSizeWidget showWideNavbar() {
     return AppBar(
+      leadingWidth: 100,
+      leading:  Container(
+        // color: Colors.amber,
+        padding: EdgeInsets.only(top: 20,bottom: 10),
+        child:  HoverIconButton(imagePath: StrLiteral.resume),
+        ),
       foregroundColor: Color(0xFFf4f4f2),
       surfaceTintColor: Color(0xFFf4f4f2),
       bottom: PreferredSize(
@@ -40,7 +46,7 @@ class _MainPageState extends State<MainPage> {
               height: 1.0, // Thickness of the border
             ),
       ),
-      toolbarHeight: 60,
+      toolbarHeight: 80,
       backgroundColor: Color(0xFFf4f4f2),
       titleSpacing: 0,
       elevation: 0,
@@ -50,9 +56,7 @@ class _MainPageState extends State<MainPage> {
         Navbarmenu.getNavVarMenuExpanded(1,"Resume"),
         Navbarmenu.getNavVarMenuExpanded(2,"Work"),
         Navbarmenu.getNavVarMenuExpanded(3,"Projects"),
-      Container(
-        child:  HoverIconButton(imagePath: StrLiteral.resume,),
-        )
+     
       ],
     );
   }
